@@ -1,17 +1,30 @@
 const fibonacci = function(num) {
     //if (num === 1) return 1; 
-    array = [];
-    adder = 0; 
-    for (let i = 0; i <= num; i++){
-        
-        newValue = 1+ i + i
-        array.push(newValue);
-        
+    let count
+    if (typeof num !== "number"){
+        count = parseInt(num);
+    }else{
+        count = num;
+    }
+    if (count < 0) return "OOPS"
+    if (count == 0) return 0; 
 
+    let firstPrev = 1; 
+    let secondPrev = 0; 
+
+    for (let i = 2; i <= count; i++){
+        let current = firstPrev + secondPrev; 
+        secondPrev = firstPrev; 
+        firstPrev = current; 
         
-    }   
-    console.table(array);
+    }
+    return firstPrev; 
+    
+    
+
+    
+
 };
-
+fibonacci(5);
 // Do not edit below this line
 module.exports = fibonacci;
